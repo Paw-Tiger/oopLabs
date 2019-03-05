@@ -1,4 +1,5 @@
 <?php
+namespace helpers;
 
 class Message
 {
@@ -26,6 +27,6 @@ class Message
             default:
                 $color='white';
         }
-        return "<p style='background-color:".$color." '>{$message}</p>>";
+        return "<p style='background-color:".$color." '>{$message}</p>";
     }
 }

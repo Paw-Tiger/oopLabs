@@ -1,6 +1,9 @@
 <?php
+namespace application;
 
-class Computer
+use \helpers\Message;
+
+abstract class Computer
 {
 
     private $CPU;
@@ -60,17 +63,17 @@ class Computer
         return $this->computerName;
     }
 
-    protected function start()
+    public function start()
     {
         $this->isWorking = true;
     }
 
-    protected function shutdown()
+    public function shutdown()
     {
         $this->isWorking = false;
     }
 
-    protected function restart()
+    public function restart()
     {
 
         if ($this->isWorking == true) {
@@ -90,12 +93,10 @@ class Computer
                 . " Video: " . $this->Video
                 . " Memory" . $this->Memory;
         } else {
-            throw new Exception('Компьютер выключен');
+            throw new Exception(Message::printLine('Компьютер выключен',Message::$warning));
         }
     }
 
-    public function identifyUser()
-    {
-        echo " Computer: Identify by login amd password";
-    }
+    abstract public function identifyUser();
+
 }
